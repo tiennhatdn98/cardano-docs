@@ -1,4 +1,6 @@
-https://iohk.io/en/blog/posts/2020/03/26/enter-the-hydra-scaling-distributed-ledgers-the-evidence-based-way/
+Source: https://iohk.io/en/blog/posts/2020/03/26/enter-the-hydra-scaling-distributed-ledgers-the-evidence-based-way/
+
+3 main problems of scaling: high transaction throughput (thông lượng transacton cao), low latency (độ trễ thấp), minimal storage per node (bộ nhớ mỗi node tối thiểu)
 
 Hydra scability architecture: the head protocol, the tail protocol, the cross-head-and-tail communication protocol, as well as of supporting protocols for routing, reconfiguration, and virtualization
 
@@ -12,6 +14,6 @@ Các state channels được áp dụng bởi Hydra are isomorphic (đẳng tíc
 
 Xác thực transaction ở head được thực hiện đồng thời hoàn toàn bằng quy trình chứng nhận bất đồng bộ off-chain (asynchronous off-chain vertification process) sử dụng đa chữ kỹ (multi-signatures). High level of parallelism này sử dụng EUTxO. Các dependencies transaction trong EUTxO là rõ ràng, cho phép cập nhật state mà không cần tuần tự hóa các giao dịch độc lập với nhau.
 
-![alt text for screen readers](/hydra.png "Text to show on mouseover").
+![alt text for screen readers](/hydra.png "Hydra Protocol").
 
 `Thí nghiệm xác thực Hydra head protocol`
