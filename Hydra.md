@@ -1,0 +1,17 @@
+https://iohk.io/en/blog/posts/2020/03/26/enter-the-hydra-scaling-distributed-ledgers-the-evidence-based-way/
+
+Hydra scability architecture: the head protocol, the tail protocol, the cross-head-and-tail communication protocol, as well as of supporting protocols for routing, reconfiguration, and virtualization
+
+The centerpiece (trọng tâm) is head protocol, cho phép tập hợp những người tham gia (participants) high-performance and high-availability (such as stake pools) xử lý nhanh số lượng lớn transaction với yêu cầu bộ nhớ tối thiểu thông qua multipary state channel (kênh state đa bên) - một khái niệm mà tạo ra kênh thanh toán hai chiều khi được triển khai trong Lightning network. Nó được hoàn thành bởi tail protocol, nó cho phép những người tham gia high-performance này cung cấp khả năng mở rộng cho số lượng lớn end-users, những người mà có thể sử dụng hệ thống từ thiết bị năng lượng thấp (low-power devices) như là điện thoại di dộng và những người có thể ngoại tuyến trong một khoảng thời gian. Khi heads và tails có thể giao tiếp thông qua Cardano mainchain, thì cross-head-and-tail communication protocol cung cấp một biến thể off-chain hiệu quả của tính năng này. Tất cả được gắn với nhau bằng việc định tuyến (routing) và quản lý cấu hình (configuration management), trong khi ảo hóa tạo điều kiện giao tiếp nhanh hơn, tổng quát hóa giao tiếp đầu cuối (head and tail communication)
+
+The Hydra head protocol: là thành phần đầu tiên của kiến trúc Hydra được phát hành công khai. Nó cho phép tập hợp những người tham gia (participants) tạo một kênh state off-chain (gọi là head) trong đó họ có thể chạy smart contract (hoặc xử lý các transaction đơn giản hơn) với nhau mà không cần tương tác với blockchain trong trường hợp lạc quan (optimistic case) khi tất cả người tham gia tuân thủ (adhere) giao thức. State channel cung cấp một cách giải quyết nhanh và thông lượng transaction cao; hơn nữa, nó yêu cầu bộ nhớ rất nhỏ, vì lịch sử off-chain transaction có thể bị xóa ngay khi trạng thái kết quả được bảo mật thong qua off-chain 'snapshot' operation.
+
+Ngay cả trong trường hợp bi quan khi số lượng người tham gia không tuân thủ protocol, sự an toàn vẫn được đảm bảo một cách nghiêm ngặt (rigorously). Bất cứ khi nào, khi có bất kỳ người tham gia có thể tạo head's 'closure' với kết quả là head's state được chuyển trở lại cho blockchain (kém hiệu quả hơn). Chúng ta nhấn mạnh rằng việc thực thi của bất kỳ smart contract nào có thể được tiếp tục liền mạch trên on-chain. Không có quỹ nào có thể được tạo ở off-chain, hoặc bất kỳ ai, head participant có thể bị mất bất kỳ khoản tiền nào.
+
+Các state channels được áp dụng bởi Hydra are isomorphic (đẳng tích) có nghĩa là chúng sử dụng định dạng transaction giống nhau và contract code như blockchain cơ bản (underlying blockchain): contract có thể được chuyển trực tiếp qua lại giữa các channels và blockchain. Do đó, state channels mang lại hiệu quả song song, off-chain ledger siblings. Nói cách khác, sổ cái trở nên multi-headed.
+
+Xác thực transaction ở head được thực hiện đồng thời hoàn toàn bằng quy trình chứng nhận bất đồng bộ off-chain (asynchronous off-chain vertification process) sử dụng đa chữ kỹ (multi-signatures). High level of parallelism này sử dụng EUTxO. Các dependencies transaction trong EUTxO là rõ ràng, cho phép cập nhật state mà không cần tuần tự hóa các giao dịch độc lập với nhau.
+
+![alt text for screen readers](/hydra.png "Text to show on mouseover").
+
+`Thí nghiệm xác thực Hydra head protocol`
