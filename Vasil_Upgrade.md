@@ -21,7 +21,7 @@ Sự phát triển của Cardano tạo điều kiện thuận lợi cho việc r
 Vasil upgrade sẽ cung cấp khả năng chính cho phép các dự án tiếp theo khởi chạy cũng như cung cấp con đường nâng cấp (mang lại tốc độ cao, khả năng giao dịch và script mạnh mẽ) cho các DApp hiện có. Với Vasil hard fork, tham số d cũng sẽ được loại bỏ khi việc tạo block là phi tập trung hoàn toàn, điều này sẽ ngăn được việc tái liên kết. Chúng ta sẽ cùng xem kỹ hơn những thay đổi của Vasil.
 
 Diffusion pipelining
-IOG đã và đang áp dụng một loạt các tiius ưu hóa thông số cần thận, ổn định (chẳng hạn như kích thước khối và đơn vị script memory tăng lên) trong suốt năm 2020 để điều chỉnh và cải thiện hiệu suất mạng. Diffusion pipelining steps things up a gear, bằng cách cải thiện thời gian truyền khối, do đó cho phép thông lượng cao hơn.
+IOG đã và đang áp dụng một loạt các tối ưu hóa thông số cần thận, ổn định (chẳng hạn như kích thước khối và đơn vị script memory tăng lên) trong suốt năm 2020 để điều chỉnh và cải thiện hiệu suất mạng. Diffusion pipelining steps things up a gear, bằng cách cải thiện thời gian truyền khối, do đó cho phép thông lượng cao hơn.
 
 Về bản chất, nó hợp lý hóa quá trình chia sẻ thông tin về việc tạo block mới giữa những người tham gia mạng bằng cách đảm bảo rằng các block được chia sẻ (truyền) trên mạng với 5 giây sau khi được tạo. Đối với điều này, diffusion pipelining truyền các khối trước khi chúng được xác thực, do đó, có sự chồng chéo (overlapping) về thời gian để khuếch tán với thời gian cần để xác thực.
 

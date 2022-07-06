@@ -3,6 +3,7 @@ UTxO:
 - Allows for the simpler parallelization of transactions in smart contract.
 - Cần truy vấn thông tin từ các block khác
 - Có thể ghi các transaction của cùng một account vào block
+- Size of blockchain: specifies the state after the transition, the newly generated transaction outputs, include more data than Account transaction
 
 Account-base model:
 
@@ -29,10 +30,11 @@ As David mentioned, the subset problem will first restrict to UTXO that have at 
 
 Some examples
 Alice has four UTXO:
-• UTXO_A 0.1BTC
-• UTXO_B 0.3BTC
-• UTXO_C 0.5BTC
-• UTXO_D 1BTC
+
+- UTXO_A 0.1BTC
+- UTXO_B 0.3BTC
+- UTXO_C 0.5BTC
+- UTXO_D 1BTC
 
 I will be ignoring transaction fees for simplicity's sake.
 
